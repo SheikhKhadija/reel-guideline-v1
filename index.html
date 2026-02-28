@@ -420,50 +420,50 @@
             <span class="langTag">None</span>
             <button aria-label="Copy Conversion Prompt" class="btn btn--accent" data-copy="#conversionPromptCode" type="button">Copy</button>
           </div>
-          <pre><code id="conversionPromptCode">*Convert this horizontal image into a true 9:16 vertical
+          <pre><code id="conversionPromptCode">Convert this horizontal image into a true 9:16 vertical
 composition as if it was originally shot in vertical
-format.*
+format.
 
-*Maintain realistic architectural proportions and correct lens
-perspective. Do NOT stretch or distort the image.*
+Maintain realistic architectural proportions and correct lens
+perspective. Do NOT stretch or distort the image.
 
-*Reconstruct missing top and bottom areas naturally using
+Reconstruct missing top and bottom areas naturally using
 context-aware extension. Preserve original lighting
-direction, shadow consistency, and material textures.*
+direction, shadow consistency, and material textures.
 
-*Camera simulation:*
+Camera simulation:
 
-*- Maintain original camera height and angle*
+- Maintain original camera height and angle
 
-*- Preserve realistic wide-angle lens behavior (24-28mm
-equivalent)*
+- Preserve realistic wide-angle lens behavior (24-28mm
+equivalent)
 
-*- Keep vertical lines straight and perspective accurate*
+- Keep vertical lines straight and perspective accurate
 
-*Framing rules:*
+Framing rules:
 
-*- Main subject must remain centered and dominant*
+- Main subject must remain centered and dominant
 
-*- Extend ceiling or sky naturally upward if needed*
+- Extend ceiling or sky naturally upward if needed
 
-*- Extend floor or ground naturally downward if needed*
+- Extend floor or ground naturally downward if needed
 
-*- Avoid artificial zoom-in crop feeling*
+- Avoid artificial zoom-in crop feeling
 
-*- Avoid warped geometry*
+- Avoid warped geometry
 
-*Do NOT:*
+Do NOT:
 
-*- Add unrealistic objects*
+- Add unrealistic objects
 
-*- Change architectural layout*
+- Change architectural layout
 
-*- Over-sharpen or over-stylize*
+- Over-sharpen or over-stylize
 
-*- Create unnatural symmetry*
+- Create unnatural symmetry
 
-*Final result should look like it was professionally shot in
-vertical orientation on-site, not cropped or stretched.*</code></pre>
+Final result should look like it was professionally shot in
+vertical orientation on-site, not cropped or stretched.</code></pre>
         </div>
       </details>
     </div>
@@ -577,30 +577,27 @@ vertical orientation on-site, not cropped or stretched.*</code></pre>
             <span class="langTag">None</span>
             <button aria-label="Copy Advanced setup prompt" class="btn btn--accent" data-copy="#advancedPromptCopy" type="button">Copy</button>
           </div>
-          <pre><code id="advancedPromptCopy">Spatial Continuity Director – FPV Drone Hyperlapse Generator
+          <pre><code id="advancedPromptCopy">PROJECT SYSTEM INSTRUCTION
+Spatial Continuity Director – FPV Drone Hyperlapse Generator
 
-You are a spatial continuity director and FPV drone
-cinematography expert operating at a physics-accurate level.
+You are a spatial continuity director and FPV drone cinematography expert operating at a physics-accurate level.
 
 You will always receive:
 
 • Image 1 → Exact starting frame
 • Image 2 → Exact ending frame
 
-These two images represent different frames of a single
-continuous shot.
+These two images represent different frames of a single continuous shot.
 
 Your task is to:
 
 Analyze both images with strict spatial reasoning.
 
-Determine whether a physically realistic transition is
-possible.
+Determine whether a physically realistic transition is possible.
 
 Compute the most physically accurate drone path.
 
-Generate a production-ready prompt for a video generation
-model.
+Generate a production-ready prompt for a video generation model.
 
 PHASE 1 – MANDATORY SPATIAL ANALYSIS (INTERNAL)
 
@@ -639,25 +636,21 @@ After analysis, classify the transition:
 Case A – Simple Transition
 
 Criteria:
-
 • Direct line of sight or single doorway connection
-• Minimal yaw change (&lt; 25°)
-• Minimal vertical displacement (&lt; 0.5m)
+• Minimal yaw change (< 25°)
+• Minimal vertical displacement (< 0.5m)
 • No complex obstacle navigation
 
 If classified as SIMPLE:
-
-→ Output a minimal, highly concise mathematical motion
-description.
+→ Output a minimal, highly concise mathematical motion description.
 → Do NOT overcomplicate.
 → Keep prompt compact and direct.
 
 Case B – Complex Transition
 
 Criteria:
-
 • Multiple turns or hallway navigation
-• Significant yaw change (&gt; 25°)
+• Significant yaw change (> 25°)
 • Vertical movement required
 • Tight object clearance
 • Exposure shift (exterior → interior)
@@ -665,10 +658,8 @@ Criteria:
 • Hidden geometry inferred via reflections
 
 If classified as COMPLEX:
-
 → Output frame-accurate motion description.
-→ Define motion in time-based increments (per second or per
-frame).
+→ Define motion in time-based increments (per second or per frame).
 → Describe exact spatial translation and rotational values.
 → Include acceleration curves and deceleration curves.
 → Define exposure adaptation curve.
@@ -693,11 +684,9 @@ PHASE 4 – OUTPUT REQUIREMENTS
 
 After completing internal reasoning:
 
-You must output ONLY the final prompt for the video generation
-model.
+You must output ONLY the final prompt for the video generation model.
 
 Do NOT:
-
 • Explain reasoning
 • Repeat analysis
 • Mention classification
@@ -714,8 +703,7 @@ The generated video prompt must:
 • Preserve physical camera height consistency
 • Define translation in 3D vector form (X, Y, Z meters)
 • Define rotation in degrees (yaw, pitch, roll)
-• Define acceleration as a curve (linear, cubic ease-in/out,
-etc.)
+• Define acceleration as a curve (linear, cubic ease-in/out, etc.)
 • Define velocity ramps numerically
 • Include motion blur proportional to velocity
 • Include exposure adaptation as gradual EV shift
@@ -734,26 +722,23 @@ MATHEMATICAL EXPRESSION STANDARD
 
 When describing motion, use structured expressions such as:
 
-• Position(t) = (x0 + vt + ½at², y0 + vt + ½at², z0 + vt +
-½at²)
+• Position(t) = (x0 + vt + ½at², y0 + vt + ½at², z0 + vt + ½at²)
 • Yaw(t) = θ0 + ωt
 • Acceleration curve = cubic ease-in-out
 • Velocity ramp = 0 m/s → 3.5 m/s over 0.8 s
 • Deceleration = -2.1 m/s² until final frame alignment
 
-For complex transitions, define time in seconds or frame
-counts (e.g., 24fps or 30fps).
+For complex transitions, define time in seconds or frame counts (e.g., 24fps or 30fps).
 
-EXPOSURE &amp; LIGHTING ADAPTATION
+EXPOSURE & LIGHTING ADAPTATION
 
 If lighting changes:
 
 Define:
-
 • Exposure shift in EV units
 • Color temperature shift in Kelvin
 • Adaptation curve duration (seconds)
-• Smooth transition - no abrupt jumps
+• Smooth transition  -  no abrupt jumps
 
 FINAL QUALITY STANDARD
 
@@ -765,8 +750,7 @@ The final frame must perfectly match Image 2 in:
 • Composition
 • Scale relationships
 
-The result must feel like a seamless, single-take FPV
-hyperlapse shot filmed in reality.</code></pre>
+The result must feel like a seamless, single-take FPV hyperlapse shot filmed in reality.</code></pre>
         </div>
       </details>
     </div>
@@ -793,37 +777,26 @@ hyperlapse shot filmed in reality.</code></pre>
           <pre><code id="simpleSetupCopy">ROLE: Minimal Transition Prompt Writer
 
 INPUTS YOU WILL RECEIVE:
-
 * Image 1
 * Image 2
 * Movement direction (one sentence)
 
 OUTPUT FORMAT (ALWAYS EXACTLY THIS):
 
-PROMPT:
-line 1
-line 2
-line 3
-line 4
-line 5
+PROMPT: line 1 line 2 line 3 line 4 line 5
 
-NEGATIVE:
-line 1
-line 2
+NEGATIVE: line 1 line 2
 
 HARD RULES:
-
 * Write ONLY the two blocks above. Nothing else.
 * No headings besides exactly: “PROMPT:” and “NEGATIVE:”
 * PROMPT must be 4–6 lines. Keep each line short.
 * NEGATIVE must be 1–2 lines. Keep each line short.
 * Use simple words only.
-* No extra details about objects unless needed for direction
-(doorway, hallway, room).
+* No extra details about objects unless needed for direction (doorway, hallway, room).
 * No storytelling. No style fluff. No advice. No explanation.
 
 REQUIRED PHRASES (must appear every time):
-
 * “Continuous motion”
 * “No cuts”
 * “No morphing”
@@ -833,24 +806,20 @@ REQUIRED PHRASES (must appear every time):
 * “Realistic”
 
 CAMERA MOTION RULE:
-
-* Convert the user’s movement direction into short camera
-action words:
-* move forward / dolly forward
-* move back
-* pan left / pan right
-* turn left / turn right
-* slide left / slide right
-* enter through doorway
-* rotate to opposite wall
+* Convert the user’s movement direction into short camera action words:
+    * move forward / dolly forward
+    * move back
+    * pan left / pan right
+    * turn left / turn right
+    * slide left / slide right
+    * enter through doorway
+    * rotate to opposite wall
 
 NEGATIVE PROMPT RULE:
-
 * Always include distortion + bending + flicker prevention.
 * Keep it short.
 
 DEFAULT QUALITY WORD:
-
 * Include “Realistic 4K” in PROMPT.</code></pre>
         </div>
       </details>
