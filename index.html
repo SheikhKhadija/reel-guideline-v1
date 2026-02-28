@@ -1,0 +1,820 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Real Estate Reel Guidelines SOP</title>
+    <style>
+        :root {
+            --primary: #0f172a;
+            --primary-light: #334155;
+            --accent: #2563eb;
+            --accent-hover: #1d4ed8;
+            --bg-body: #f8fafc;
+            --bg-surface: #ffffff;
+            --text-main: #1e293b;
+            --text-muted: #64748b;
+            --border: #e2e8f0;
+            --success: #10b981;
+            --warning: #f59e0b;
+            --danger: #ef4444;
+            --radius: 8px;
+            --transition: all 0.2s ease-in-out;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background-color: var(--bg-body);
+            color: var(--text-main);
+            line-height: 1.6;
+            scroll-behavior: smooth;
+        }
+
+        /* Header & Navigation */
+        header {
+            background-color: var(--bg-surface);
+            border-bottom: 1px solid var(--border);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1rem 1.5rem;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        @media (min-width: 768px) {
+            .nav-container {
+                flex-direction: row;
+                justify-content: space-between;
+                align-items: center;
+            }
+        }
+
+        .logo {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--primary);
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 1rem;
+            overflow-x: auto;
+            padding-bottom: 0.5rem;
+            scrollbar-width: none;
+        }
+        
+        .nav-links::-webkit-scrollbar {
+            display: none;
+        }
+
+        .nav-links a {
+            color: var(--text-muted);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.9rem;
+            white-space: nowrap;
+            transition: var(--transition);
+        }
+
+        .nav-links a:hover {
+            color: var(--accent);
+        }
+
+        .search-container {
+            position: relative;
+            width: 100%;
+        }
+
+        @media (min-width: 768px) {
+            .search-container {
+                max-width: 300px;
+            }
+        }
+
+        .search-input {
+            width: 100%;
+            padding: 0.5rem 1rem 0.5rem 2.5rem;
+            border: 1px solid var(--border);
+            border-radius: 9999px;
+            font-size: 0.9rem;
+            transition: var(--transition);
+        }
+
+        .search-input:focus {
+            outline: none;
+            border-color: var(--accent);
+            box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+        }
+
+        .search-icon {
+            position: absolute;
+            left: 0.8rem;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--text-muted);
+            width: 16px;
+            height: 16px;
+        }
+
+        /* Main Content */
+        main {
+            max-width: 800px;
+            margin: 2rem auto;
+            padding: 0 1.5rem;
+            min-height: 80vh;
+        }
+
+        h1 {
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+            color: var(--primary);
+        }
+
+        .page-description {
+            color: var(--text-muted);
+            margin-bottom: 2rem;
+        }
+
+        /* Accordions */
+        .section-container {
+            margin-bottom: 1rem;
+            background: var(--bg-surface);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+            overflow: hidden;
+        }
+
+        details {
+            width: 100%;
+        }
+
+        summary {
+            padding: 1.25rem;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            list-style: none;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            user-select: none;
+            background-color: var(--bg-surface);
+            transition: var(--transition);
+        }
+
+        summary::-webkit-details-marker {
+            display: none;
+        }
+
+        summary:hover {
+            background-color: #f1f5f9;
+        }
+
+        summary::after {
+            content: "+";
+            font-size: 1.5rem;
+            font-weight: 300;
+            color: var(--text-muted);
+            transition: transform 0.3s ease;
+        }
+
+        details[open] summary::after {
+            transform: rotate(45deg);
+        }
+
+        details[open] summary {
+            border-bottom: 1px solid var(--border);
+        }
+
+        .details-content {
+            padding: 1.5rem;
+            animation: fadeIn 0.3s ease-in-out;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-5px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Typography inside sections */
+        h3 {
+            margin: 1.5rem 0 0.5rem 0;
+            font-size: 1.1rem;
+            color: var(--primary-light);
+        }
+        
+        h3:first-child {
+            margin-top: 0;
+        }
+
+        p {
+            margin-bottom: 1rem;
+        }
+
+        ul {
+            margin-left: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        li {
+            margin-bottom: 0.5rem;
+        }
+
+        .citation {
+            font-size: 0.8rem;
+            color: var(--accent);
+            opacity: 0.8;
+            user-select: none;
+        }
+
+        /* Code Blocks */
+        .code-wrapper {
+            position: relative;
+            margin: 1.5rem 0;
+            border-radius: var(--radius);
+            background-color: var(--primary);
+            overflow: hidden;
+        }
+
+        .code-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: var(--primary-light);
+            padding: 0.5rem 1rem;
+            color: #e2e8f0;
+            font-size: 0.85rem;
+            font-family: monospace;
+        }
+
+        .copy-btn {
+            background-color: transparent;
+            border: 1px solid #64748b;
+            color: #e2e8f0;
+            padding: 0.25rem 0.75rem;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 0.8rem;
+            transition: var(--transition);
+        }
+
+        .copy-btn:hover {
+            background-color: var(--accent);
+            border-color: var(--accent);
+            color: white;
+        }
+
+        pre {
+            padding: 1rem;
+            overflow-x: auto;
+            color: #f8fafc;
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 0.9rem;
+            line-height: 1.5;
+            white-space: pre-wrap;
+        }
+
+        /* Warning Section */
+        #warnings .section-container {
+            border-left: 4px solid var(--warning);
+        }
+        
+        #warnings summary {
+            color: #b45309;
+        }
+
+        /* Back to top button */
+        #backToTop {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            background-color: var(--accent);
+            color: white;
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            border: none;
+            cursor: pointer;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            opacity: 0;
+            visibility: hidden;
+            transition: var(--transition);
+            z-index: 1000;
+        }
+
+        #backToTop.visible {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        #backToTop:hover {
+            background-color: var(--accent-hover);
+            transform: translateY(-3px);
+        }
+
+        /* No Results Message */
+        #no-results {
+            display: none;
+            text-align: center;
+            padding: 3rem;
+            color: var(--text-muted);
+            background: var(--bg-surface);
+            border-radius: var(--radius);
+            border: 1px dashed var(--border);
+        }
+
+        /* Utility */
+        .highlight {
+            font-weight: 600;
+            color: var(--primary);
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="nav-container">
+            <div>
+                <a href="#" class="logo">Reel SOP</a>
+            </div>
+            <nav class="nav-links">
+                <a href="#overview">Overview</a>
+                <a href="#image-conversion">Image Conversion</a>
+                <a href="#video-generation">Video Gen</a>
+                <a href="#prompt-generation">Prompt Setup</a>
+                <a href="#assembly">Assembly</a>
+                <a href="#warnings">Warnings</a>
+            </nav>
+            <div class="search-container">
+                <svg class="search-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+                </svg>
+                <input type="text" id="searchInput" class="search-input" placeholder="Search guidelines...">
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <h1>Finalized Reel Prompt Instructions and Guidelines SOP</h1>
+        <p class="page-description">Standard operating procedure for processing architectural photos into continuous AI-generated video tours.</p>
+
+        <div id="no-results">
+            <h3>No matching guidelines found.</h3>
+            <p>Try adjusting your search terms.</p>
+        </div>
+
+        <section id="overview" class="section-container">
+            <details open>
+                <summary>1. Process Overview</summary>
+                <div class="details-content">
+                    <ul>
+                        <li>The process begins with receiving and organizing the house photographs into a logical sequence, such as: Exterior shot → Entry via the main door → Foyer → Living Space → Dining Space → Kitchen Space → Bedroom space, or the subsequent area in the flow. [cite_start]<span class="citation">[cite: 1]</span></li>
+                        <li>Select the optimal images from the folder that facilitate a seamless and realistic transition between Image 1 and Image 2 when processed by the Kling video AI. [cite_start]<span class="citation">[cite: 2]</span></li>
+                        <li>The operator should assume the role of the videographer, with the AI model serving as the camera. [cite_start]<span class="citation">[cite: 3]</span></li>
+                        <li>A selection of 10-15 shots is recommended for small to medium residences, and a maximum of 20 shots for mansion-type properties. [cite_start]<span class="citation">[cite: 4]</span></li>
+                    </ul>
+                </div>
+            </details>
+        </section>
+
+        <section id="image-conversion" class="section-container">
+            <details>
+                <summary>2. Image Conversion (Nanobanana Pro)</summary>
+                <div class="details-content">
+                    <p>Once the optimal shots for connection and flow creation have been selected, these horizontal images must be converted to a vertical format using Nanobanana Pro. [cite_start]<span class="citation">[cite: 5]</span></p>
+                    [cite_start]<p>The following prompt should be applied to each image to convert it from horizontal to vertical while preserving all inherent details: <span class="citation">[cite: 6]</span></p>
+                    <ul>
+                        <li>This prompt is mandatory for converting horizontal property images into the required 9:16 vertical aspect ratio using a tool like Nanobanana Pro. [cite_start]<span class="citation">[cite: 7]</span></li>
+                        <li>It ensures the preservation of realistic architectural and photographic integrity during the extension process. [cite_start]<span class="citation">[cite: 8]</span></li>
+                    </ul>
+                    
+                    [cite_start]<h3>Conversion Prompt (Must be used precisely) <span class="citation">[cite: 9]</span>:</h3>
+                    
+                    <div class="code-wrapper">
+                        <div class="code-header">
+                            <span>Nanobanana Pro Prompt</span>
+                            <button class="copy-btn" title="Copy to clipboard">Copy Prompt</button>
+                        </div>
+                        [cite_start]<pre><code>Convert this horizontal image into a true 9:16 vertical composition as if it was originally shot in vertical format. [cite: 10]
+
+Maintain realistic architectural proportions and correct lens perspective. [cite_start]Do NOT stretch or distort the image. [cite: 11]
+
+Reconstruct missing top and bottom areas naturally using context-aware extension. [cite_start]Preserve original lighting direction, shadow consistency, and material textures. [cite: 12]
+
+[cite_start]Camera simulation: [cite: 13]
+- [cite_start]Maintain original camera height and angle [cite: 14]
+- [cite_start]Preserve realistic wide-angle lens behavior (24-28mm equivalent) [cite: 15]
+- [cite_start]Keep vertical lines straight and perspective accurate [cite: 16]
+
+[cite_start]Framing rules: [cite: 17]
+- [cite_start]Main subject must remain centered and dominant [cite: 18]
+- [cite_start]Extend ceiling or sky naturally upward if needed [cite: 19]
+- [cite_start]Extend floor or ground naturally downward if needed [cite: 20]
+- [cite_start]Avoid artificial zoom-in crop feeling [cite: 21]
+- [cite_start]Avoid warped geometry [cite: 22]
+
+[cite_start]Do NOT: [cite: 23]
+- [cite_start]Add unrealistic objects [cite: 24]
+- [cite_start]Change architectural layout [cite: 25]
+- [cite_start]Over-sharpen or over-stylize [cite: 26]
+- [cite_start]Create unnatural symmetry [cite: 27]
+
+[cite_start]Final result should look like it was professionally shot in vertical orientation on-site, not cropped or stretched. [cite: 28]</code></pre>
+                    </div>
+                </div>
+            </details>
+        </section>
+
+        <section id="video-generation" class="section-container">
+            <details>
+                <summary>3. Video Generation (Higgsfield.ai)</summary>
+                <div class="details-content">
+                    <p>Upon completion of the vertical conversion for all horizontal images, the video generation process is initiated. [cite_start]<span class="citation">[cite: 30]</span></p>
+                    <p>Navigate to Higgsfield.ai (the current platform of use). [cite_start]Select the “Video” section from the menu bar, ensuring the following settings are precisely maintained: <span class="citation">[cite: 31]</span></p>
+                    <ul>
+                        <li><span class="highlight">Model:</span> Kling 3.0 | [cite_start]<span class="highlight">Duration:</span> 3s / 4s <span class="citation">[cite: 32]</span></li>
+                        <li><span class="highlight">Aspect Ratio:</span> 9:16 | [cite_start]<span class="highlight">Resolution:</span> 720p <span class="citation">[cite: 33]</span></li>
+                    </ul>
+                    <p>Proceed to add the start frame and end frame, input the prompt, and select "Generate." [cite_start]<span class="citation">[cite: 34]</span></p>
+                </div>
+            </details>
+        </section>
+
+        <section id="prompt-generation" class="section-container">
+            <details>
+                <summary>4. Prompt Generation Setup (ChatGPT)</summary>
+                <div class="details-content">
+                    <p>A prompt instruction environment needs to be established within a conversational model (for this process, ChatGPT is utilized, though a similar approach applies to other software). [cite_start]<span class="citation">[cite: 35]</span></p>
+                    <p>To expedite and ensure consistency in prompt writing for image-to-video generation, two distinct ChatGPT prompt setups will be created. [cite_start]<span class="citation">[cite: 36]</span></p>
+                    
+                    <h3>Environment Configuration Steps:</h3>
+                    <ol>
+                        <li>First, establish a new project environment within ChatGPT. [cite_start]<span class="citation">[cite: 37]</span></li>
+                        <li>Name the project environment and, via the setting-gear icon located on the top-right side, set the memory settings to “Project-Only” to prevent the project instructions from affecting other chatrooms. [cite_start]<span class="citation">[cite: 38]</span></li>
+                        <li>Once the project environment is established, click on the three-dots on the top-right side → Project Settings. [cite_start]<span class="citation">[cite: 39]</span></li>
+                        [cite_start]<li>Click on project settings and paste the following prompt precisely into the “Instructions” box: <span class="citation">[cite: 40]</span></li>
+                    </ol>
+
+                    <p>With the project environment configured, the operator assumes control for each video frame generation, specifying the duration of each generation (typically between 3 to 4 seconds), and describing the starting point of Image 1 (starting frame) and the intended camera movement (Dolly, Pedestal, Truck, Pan, Tilt, Roll, etc.) to reach Image 2. ChatGPT then executes this vision. [cite_start]<span class="citation">[cite: 217]</span></p>
+
+                    <hr style="margin: 2rem 0; border: none; border-top: 1px solid var(--border);">
+
+                    [cite_start]<h3>Setup 1: Advanced setup (for complex camera motion) <span class="citation">[cite: 41]</span></h3>
+                    <p>This configuration generates Kling prompts using a more structured language incorporating directional logic, geometry, and motion mathematics. [cite_start]<span class="citation">[cite: 42]</span> This allows for simultaneous movements (e.g., pan + truck, compound camera paths, controlled depth transitions) within shorter durations. [cite_start]<span class="citation">[cite: 43][cite_start]</span> To ensure the prompts are analytically accurate and mathematically precise: <span class="citation">[cite: 44]</span></p>
+
+                    <div class="code-wrapper">
+                        <div class="code-header">
+                            <span>System Instruction: Advanced</span>
+                            <button class="copy-btn">Copy Prompt</button>
+                        </div>
+                        [cite_start]<pre><code>PROJECT SYSTEM INSTRUCTION [cite: 45]
+[cite_start]Spatial Continuity Director – FPV Drone Hyperlapse Generator [cite: 46]
+
+[cite_start]You are a spatial continuity director and FPV drone cinematography expert operating at a physics-accurate level. [cite: 47]
+
+[cite_start]You will always receive: [cite: 48]
+[cite_start]• Image 1 → Exact starting frame [cite: 49]
+[cite_start]• Image 2 → Exact ending frame [cite: 50]
+[cite_start]These two images represent different frames of a single continuous shot. [cite: 51]
+
+[cite_start]Your task is to: [cite: 52]
+[cite_start]Analyze both images with strict spatial reasoning. [cite: 53]
+[cite_start]Determine whether a physically realistic transition is possible. [cite: 54]
+[cite_start]Compute the most physically accurate drone path. [cite: 55]
+[cite_start]Generate a production-ready prompt for a video generation model. [cite: 56]
+
+[cite_start]PHASE 1 – MANDATORY SPATIAL ANALYSIS (INTERNAL) [cite: 57]
+[cite_start]You must analyze: [cite: 58]
+
+[cite_start]Camera Geometry (Image 1) [cite: 59]
+[cite_start]• Estimated camera height (meters from ground plane) [cite: 60]
+[cite_start]• Yaw angle (° relative to dominant wall or horizon axis) [cite: 61]
+[cite_start]• Pitch angle (° tilt up/down) [cite: 62]
+[cite_start]• Roll angle (if present) [cite: 63]
+[cite_start]• Estimated focal perspective and field of view [cite: 64]
+[cite_start]• Vanishing points and dominant axis lines [cite: 65]
+
+[cite_start]Environmental Structure [cite: 66]
+[cite_start]• Visible doors, openings, hallways, thresholds [cite: 67]
+[cite_start]• Reflections revealing hidden geometry (mirrors, glass) [cite: 68]
+[cite_start]• Window placements [cite: 69]
+[cite_start]• Light source direction and color temperature [cite: 70]
+[cite_start]• Occlusion objects (walls, cabinets, beds, furniture) [cite: 71]
+[cite_start]• Depth layering and parallax cues [cite: 72]
+
+[cite_start]Image 2 Spatial Comparison [cite: 73]
+[cite_start]• Required final camera height [cite: 74]
+[cite_start]• Required final yaw/pitch [cite: 75]
+[cite_start]• Required position shift (X, Y, Z displacement) [cite: 76]
+[cite_start]• Exposure difference [cite: 77]
+[cite_start]• Color temperature shift [cite: 78]
+
+[cite_start]PHASE 2 – DIFFICULTY CLASSIFICATION [cite: 79]
+[cite_start]After analysis, classify the transition: [cite: 80]
+
+[cite_start]Case A – Simple Transition [cite: 81]
+[cite_start]Criteria: [cite: 82]
+[cite_start]• Direct line of sight or single doorway connection [cite: 83]
+[cite_start]• Minimal yaw change (< 25°) [cite: 84]
+[cite_start]• Minimal vertical displacement (< 0.5m) [cite: 85]
+[cite_start]• No complex obstacle navigation [cite: 86]
+[cite_start]If classified as SIMPLE: [cite: 87]
+[cite_start]→ Output a minimal, highly concise mathematical motion description. [cite: 88]
+[cite_start]→ Do NOT overcomplicate. [cite: 89]
+[cite_start]→ Keep prompt compact and direct. [cite: 90]
+
+[cite_start]Case B – Complex Transition [cite: 91]
+[cite_start]Criteria: [cite: 92]
+[cite_start]• Multiple turns or hallway navigation [cite: 93]
+[cite_start]• Significant yaw change (> 25°) [cite: 94]
+[cite_start]• Vertical movement required [cite: 95]
+[cite_start]• Tight object clearance [cite: 96]
+[cite_start]• Exposure shift (exterior → interior) [cite: 97]
+[cite_start]• Occlusion navigation [cite: 98]
+[cite_start]• Hidden geometry inferred via reflections [cite: 99]
+[cite_start]If classified as COMPLEX: [cite: 100]
+[cite_start]→ Output frame-accurate motion description. [cite: 101]
+[cite_start]→ Define motion in time-based increments (per second or per frame). [cite: 102]
+[cite_start]→ Describe exact spatial translation and rotational values. [cite: 103]
+[cite_start]→ Include acceleration curves and deceleration curves. [cite: 104]
+[cite_start]→ Define exposure adaptation curve. [cite: 105]
+[cite_start]→ Define parallax behavior. [cite: 106]
+
+[cite_start]PHASE 3 – PHYSICAL CONSTRAINT RULES [cite: 107]
+[cite_start]The drone must obey real-world physics. [cite: 108]
+[cite_start]Strictly enforce: [cite: 109]
+[cite_start]• No wall penetration [cite: 110]
+[cite_start]• No object clipping [cite: 111]
+[cite_start]• No teleportation [cite: 112]
+[cite_start]• No instantaneous yaw jumps [cite: 113]
+[cite_start]• No perspective distortion warping [cite: 114]
+[cite_start]• Momentum continuity must be preserved [cite: 115]
+[cite_start]All movement must follow continuous vector-based translation. [cite: 116]
+
+[cite_start]PHASE 4 – OUTPUT REQUIREMENTS [cite: 117]
+[cite_start]After completing internal reasoning: [cite: 118]
+[cite_start]You must output ONLY the final prompt for the video generation model. [cite: 119]
+[cite_start]Do NOT: [cite: 120]
+[cite_start]• Explain reasoning [cite: 121]
+[cite_start]• Repeat analysis [cite: 122]
+[cite_start]• Mention classification [cite: 123]
+[cite_start]• Describe what you observed [cite: 124]
+[cite_start]Only output the final production-ready prompt. [cite: 125]
+
+[cite_start]OUTPUT FORMAT RULES [cite: 126]
+[cite_start]The generated video prompt must: [cite: 127]
+[cite_start]• Use Image 1 as the exact starting frame [cite: 128]
+[cite_start]• Use Image 2 as the exact ending frame [cite: 129]
+[cite_start]• Preserve physical camera height consistency [cite: 130]
+[cite_start]• Define translation in 3D vector form (X, Y, Z meters) [cite: 131]
+[cite_start]• Define rotation in degrees (yaw, pitch, roll) [cite: 132]
+[cite_start]• Define acceleration as a curve (linear, cubic ease-in/out, etc.) [cite: 133]
+[cite_start]• Define velocity ramps numerically [cite: 134]
+[cite_start]• Include motion blur proportional to velocity [cite: 135]
+[cite_start]• Include exposure adaptation as gradual EV shift [cite: 136]
+[cite_start]• Preserve lens perspective continuity [cite: 137]
+[cite_start]• End with exact alignment to Image 2 framing [cite: 138]
+
+[cite_start]Language must be: [cite: 139]
+[cite_start]• Cinematic [cite: 140]
+[cite_start]• Technically precise [cite: 141]
+[cite_start]• Mathematically structured [cite: 142]
+[cite_start]• Physically accurate [cite: 143]
+[cite_start]• Written in normal text format (not JSON) [cite: 144]
+
+[cite_start]MATHEMATICAL EXPRESSION STANDARD [cite: 145]
+[cite_start]When describing motion, use structured expressions such as: [cite: 146]
+[cite_start]• Position(t) = (x0 + vt + ½at², y0 + vt + ½at², z0 + vt + ½at²) [cite: 147]
+[cite_start]• Yaw(t) = θ0 + ωt [cite: 148]
+[cite_start]• Acceleration curve = cubic ease-in-out [cite: 149]
+[cite_start]• Velocity ramp = 0 m/s → 3.5 m/s over 0.8 s [cite: 150]
+[cite_start]• Deceleration = -2.1 m/s² until final frame alignment [cite: 151]
+[cite_start]For complex transitions, define time in seconds or frame counts (e.g., 24fps or 30fps). [cite: 152]
+
+[cite_start]EXPOSURE & LIGHTING ADAPTATION [cite: 153]
+[cite_start]If lighting changes: [cite: 154]
+[cite_start]Define: [cite: 155]
+[cite_start]• Exposure shift in EV units [cite: 156]
+[cite_start]• Color temperature shift in Kelvin [cite: 157]
+[cite_start]• Adaptation curve duration (seconds) [cite: 158]
+[cite_start]• Smooth transition - no abrupt jumps [cite: 159]
+
+[cite_start]FINAL QUALITY STANDARD [cite: 160]
+[cite_start]The final frame must perfectly match Image 2 in: [cite: 161]
+[cite_start]• Position [cite: 162]
+[cite_start]• Perspective [cite: 163]
+[cite_start]• Orientation [cite: 164]
+[cite_start]• Composition [cite: 165]
+[cite_start]• Scale relationships [cite: 166]
+[cite_start]The result must feel like a seamless, single-take FPV hyperlapse shot filmed in reality. [cite: 167]</code></pre>
+                    </div>
+
+                    <hr style="margin: 2rem 0; border: none; border-top: 1px solid var(--border);">
+
+                    [cite_start]<h3>Setup 2: Simple setup (for clean, basic transitions) <span class="citation">[cite: 169]</span></h3>
+                    <p>This configuration maintains a straightforward language and is optimal for transitions where the camera movement is predominantly one-directional (e.g., Dolly in-out, Panning, Tilting, Pedestal, Rolling, etc.). [cite_start]<span class="citation">[cite: 170]</span></p>
+
+                    <div class="code-wrapper">
+                        <div class="code-header">
+                            [cite_start]<span>System Instruction: Simple Setup <span class="citation">[cite: 171]</span></span>
+                            <button class="copy-btn">Copy Prompt</button>
+                        </div>
+                        [cite_start]<pre><code>ROLE: Minimal Transition Prompt Writer [cite: 172]
+
+[cite_start]INPUTS YOU WILL RECEIVE: [cite: 173]
+* [cite_start]Image 1 [cite: 174]
+* [cite_start]Image 2 [cite: 175]
+* [cite_start]Movement direction (one sentence) [cite: 176]
+
+[cite_start]OUTPUT FORMAT (ALWAYS EXACTLY THIS): [cite: 177]
+
+[cite_start]PROMPT: [cite: 178]
+[cite_start]line 1 [cite: 179]
+[cite_start]line 2 [cite: 180]
+[cite_start]line 3 [cite: 181]
+[cite_start]line 4 [cite: 182]
+[cite_start]line 5 [cite: 183]
+
+[cite_start]NEGATIVE: [cite: 184]
+[cite_start]line 1 [cite: 185]
+[cite_start]line 2 [cite: 186]
+
+[cite_start]HARD RULES: [cite: 187]
+* Write ONLY the two blocks above. [cite_start]Nothing else. [cite: 188]
+* [cite_start]No headings besides exactly: “PROMPT:” and “NEGATIVE:” [cite: 189]
+* PROMPT must be 4–6 lines. [cite_start]Keep each line short. [cite: 190]
+* NEGATIVE must be 1–2 lines. [cite_start]Keep each line short. [cite: 191]
+* [cite_start]Use simple words only. [cite: 192]
+* [cite_start]No extra details about objects unless needed for direction (doorway, hallway, room). [cite: 193]
+* No storytelling. No style fluff. No advice. [cite_start]No explanation. [cite: 194]
+
+[cite_start]REQUIRED PHRASES (must appear every time): [cite: 195]
+* [cite_start]“Continuous motion” [cite: 196]
+* [cite_start]“No cuts” [cite: 197]
+* [cite_start]“No morphing” [cite: 198]
+* [cite_start]“Same height” [cite: 199]
+* [cite_start]“Same lighting” [cite: 200]
+* [cite_start]“Stable perspective” [cite: 201]
+* [cite_start]“Realistic” [cite: 202]
+
+[cite_start]CAMERA MOTION RULE: [cite: 203]
+* [cite_start]Convert the user’s movement direction into short camera action words: [cite: 204]
+* [cite_start]move forward / dolly forward [cite: 205]
+* [cite_start]move back [cite: 206]
+* [cite_start]pan left / pan right [cite: 207]
+* [cite_start]turn left / turn right [cite: 208]
+* [cite_start]slide left / slide right [cite: 209]
+* [cite_start]enter through doorway [cite: 210]
+* [cite_start]rotate to opposite wall [cite: 211]
+
+[cite_start]NEGATIVE PROMPT RULE: [cite: 212]
+* [cite_start]Always include distortion + bending + flicker prevention. [cite: 213]
+* [cite_start]Keep it short. [cite: 214]
+
+[cite_start]DEFAULT QUALITY WORD: [cite: 215]
+* [cite_start]Include “Realistic 4K” in PROMPT. [cite: 216]</code></pre>
+                    </div>
+
+                </div>
+            </details>
+        </section>
+
+        <section id="assembly" class="section-container">
+            <details>
+                <summary>5. Final Assembly</summary>
+                <div class="details-content">
+                    <ul>
+                        <li>Finally, upon generation of all 3-second clips, they must be assembled. Any AI-generated faults or errors should be addressed. [cite_start]<span class="citation">[cite: 218]</span></li>
+                        <li>Background music should be added. Effects or presets may be utilized if necessary, but are not required if the AI output exhibits a 100% seamless room-to-room flow. [cite_start]<span class="citation">[cite: 219]</span></li>
+                    </ul>
+                </div>
+            </details>
+        </section>
+
+        <section id="warnings" class="section-container">
+            <details open>
+                <summary>6. [cite_start]WARNING: Key Considerations <span class="citation">[cite: 220]</span></summary>
+                <div class="details-content">
+                    <ul>
+                        <li>Primarily utilize 3-second generation within Higgsfield; clips should never exceed 4 seconds in duration. [cite_start]<span class="citation">[cite: 221]</span></li>
+                        <li>Thoroughly verify the Nanobanana-generated vertical images to ensure no faults remain from the AI conversion process. [cite_start]<span class="citation">[cite: 222]</span></li>
+                        <li>This is critical, as conversion errors will result in hallucination or an unrealistic transition in the video generation output. [cite_start]<span class="citation">[cite: 223]</span></li>
+                        <li>If a connection between rooms is not apparent, review all photographs again. [cite_start]<span class="citation">[cite: 224]</span></li>
+                        <li>If a connection remains elusive, maintain the discontinuity and introduce a transition effect during the editing phase (avoid attempting to generate the transition effect using Higgsfield). [cite_start]<span class="citation">[cite: 225]</span></li>
+                        <li>The video must not introduce items that were absent in the original photograph. [cite_start]<span class="citation">[cite: 226]</span></li>
+                        <li>Ensure the output is as accurate as possible to prevent any misinterpretation of the homes for the clients. [cite_start]<span class="citation">[cite: 227]</span></li>
+                    </ul>
+                </div>
+            </details>
+        </section>
+
+    </main>
+
+    <button id="backToTop" aria-label="Back to top">↑</button>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            
+            // Search / Filter Functionality
+            const searchInput = document.getElementById('searchInput');
+            const sections = document.querySelectorAll('.section-container');
+            const noResults = document.getElementById('no-results');
+
+            searchInput.addEventListener('input', (e) => {
+                const term = e.target.value.toLowerCase();
+                let hasResults = false;
+
+                sections.forEach(section => {
+                    const textContent = section.textContent.toLowerCase();
+                    const details = section.querySelector('details');
+
+                    if (textContent.includes(term)) {
+                        section.style.display = 'block';
+                        hasResults = true;
+                        if (term.length > 0) {
+                            details.setAttribute('open', '');
+                        }
+                    } else {
+                        section.style.display = 'none';
+                    }
+                });
+
+                if (hasResults || term === '') {
+                    noResults.style.display = 'none';
+                } else {
+                    noResults.style.display = 'block';
+                }
+            });
+
+            // Copy to Clipboard (Strips Citations Automatically)
+            const copyButtons = document.querySelectorAll('.copy-btn');
+            copyButtons.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    // Find the <pre> block relative to this button
+                    const preElement = btn.parentElement.nextElementSibling;
+                    const rawText = preElement.textContent;
+                    
+                    [cite_start]// Regex to match and remove citation tags like [cite: 10] [cite_start]or [cite: 1, 2]
+                    const cleanText = rawText.replace(/\+\]/g, '').trim();
+
+                    navigator.clipboard.writeText(cleanText).then(() => {
+                        const originalText = btn.textContent;
+                        btn.textContent = 'Copied!';
+                        btn.style.backgroundColor = 'var(--success)';
+                        btn.style.borderColor = 'var(--success)';
+                        btn.style.color = 'white';
+                        
+                        setTimeout(() => {
+                            btn.textContent = originalText;
+                            btn.style.backgroundColor = '';
+                            btn.style.borderColor = '';
+                            btn.style.color = '';
+                        }, 2000);
+                    }).catch(err => {
+                        console.error('Failed to copy: ', err);
+                        btn.textContent = 'Error';
+                    });
+                });
+            });
+
+            // Back to Top Button Visibility and Action
+            const backToTop = document.getElementById('backToTop');
+            
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 300) {
+                    backToTop.classList.add('visible');
+                } else {
+                    backToTop.classList.remove('visible');
+                }
+            });
+
+            backToTop.addEventListener('click', () => {
+                window.scrollTo({
+                    top: 0,
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+</html>
